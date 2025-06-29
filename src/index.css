@@ -123,7 +123,7 @@ aside {
 } */
 main {
 	flex: 1;
-	padding: 0.5rem;
+	padding: 0 0.5rem;
 }
 
 /* fix icon position  using custom css */

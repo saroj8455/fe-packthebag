@@ -7,6 +7,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root, { loader as rootLoader } from './routes/Root.jsx';
 import ViewError from './ViewError.jsx';
 import Index from './routes/Index.jsx';
+import ContactProfile, {
+	loader as contactLoader,
+} from './pages/ContactProfile.jsx';
 
 const value = {
 	ripple: true,
@@ -18,7 +21,18 @@ const router = createBrowserRouter([
 		element: <Root />,
 		loader: rootLoader,
 		errorElement: <ViewError />,
-		children: [{ index: true, element: <Index /> }],
+		children: [
+			{ index: true, element: <Index /> },
+			{
+				path: 'contact/:contactId',
+				element: <ContactProfile />,
+				loader: contactLoader,
+				errorElement: <ViewError />,
+				shouldRevalidate: ({ currentParams, nextParams }) => {
+					return currentParams.contactId !== nextParams.contactId;
+				},
+			},
+		],
 	},
 ]);
 

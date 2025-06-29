@@ -4,6 +4,7 @@ import Container from './components/Container';
 
 export default function ViewError() {
 	const error = useRouteError();
+	console.error(error);
 	return (
 		<Container>
 			<h1>Oops!</h1>

@@ -23,7 +23,6 @@ export async function loader() {
 
 export default function Root() {
 	const { contacts } = useLoaderData();
-	console.log(contacts);
 
 	return (
 		<>
@@ -60,10 +59,9 @@ export default function Root() {
 					{contacts && contacts.length > 0 ? (
 						<ul>
 							{contacts.map((contact) => (
-								<li key={contact.id}>
-									<Link to={`contacts/${contact.id}`}>
-										{contact.name ? <>{contact.name}</> : <i>No Name</i>}{' '}
-										{contact.favorite && <span>★</span>}
+								<li key={contact.id} className="mb-3">
+									<Link to={`contact/${contact.id}`}>
+										{contact.name} - {contact.id}
 									</Link>
 								</li>
 							))}
