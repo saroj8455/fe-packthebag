@@ -1,5 +1,8 @@
 import { Outlet } from 'react-router-dom';
 import Container from '../components/Container';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { Divider } from 'primereact/divider';
 
 export default function Root() {
 	return (
@@ -7,20 +10,31 @@ export default function Root() {
 			<Container>
 				<aside>
 					<h1>React Router Contacts</h1>
-					<div>
+					<Divider />
+					<div className="flex gap-3 align-items-center">
 						<form id="search-form" role="search">
-							<input
-								id="q"
-								aria-label="Search contacts"
-								placeholder="Search"
-								type="search"
-								name="q"
-							/>
+							<div className="flex flex-column gap-2">
+								<label htmlFor="username">Search contacts</label>
+								<InputText
+									id="username"
+									aria-describedby="username-help"
+									aria-label="Search contacts"
+									placeholder="Search"
+								/>
+								<small id="username-help">
+									Enter your username to reset your password.
+								</small>
+							</div>
 							<div id="search-spinner" aria-hidden hidden={true} />
 							<div className="sr-only" aria-live="polite"></div>
 						</form>
 						<form method="post">
-							<button type="submit">New</button>
+							<Button
+								type="submit"
+								className="mt-1"
+								label="New"
+								icon="pi pi-check"
+							/>
 						</form>
 					</div>
 					<nav>
