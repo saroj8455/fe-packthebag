@@ -6,6 +6,7 @@ import { PrimeReactProvider } from 'primereact/api';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root.jsx';
 import ViewError from './ViewError.jsx';
+import Index from './routes/Index.jsx';
 
 const value = {
 	ripple: true,
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
 		path: '/',
 		element: <Root />,
 		errorElement: <ViewError />,
+		children: [{ index: true, element: <Index /> }],
 	},
 ]);
 
